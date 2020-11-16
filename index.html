@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!--Font awesome CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+        <!--Octicon CDN-->
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+        <link rel="stylesheet" href="style.css" />
+        <title>Your Repositories</title>
+    </head>
+    <body>
+        <header>
+            <!-- nav section -->
+            <!-- <nav>
+                <div class="nav-group-left">
+                    <div class="nav-toggle">
+                        <span class="iconify" data-icon="octicon:three-bars-16" data-inline="false"></span>
+                    </div>
+                    <a href="#home" class="nav-brand">
+                        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+                    </a>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search or jump to..." />
+                        <img
+                            src="https://github.githubassets.com/images/search-key-slash.svg"
+                            alt="input suffix element"
+                            class="forward-slash"
+                        />
+                    </div>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="" class="nav-link">Pull requests</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Issues</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Codespaces</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Marketplace</a></li>
+                        <li class="nav-item"><a href="" class="nav-link">Explore</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group-right">
+                    <div class="notification-bell">
+                        <span class="iconify" data-icon="octicon:bell-24" data-inline="false"></span>
+                        <span class="notification-indicator"></span>
+                    </div>
+                    <div class="create">
+                        <span class="iconify" data-icon="octicon:plus-24" data-inline="false"></span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="account">
+                        <img src="./images/avatar-small.jpeg" alt="user avatar" />
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </nav> -->
+
+            <!-- main content -->
+            <main>
+                <section class="tabs-section">
+                    <div class="empty"></div>
+                    <div class="tabs-container">
+                        <ul class="tab-list hide-sm">
+                            <li class="tab">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:book-24" data-inline="false"></span>
+                                    Overview
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:repo-24" data-inline="false"></span>
+                                    Repositories
+                                    <span class="count">41</span>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:project-24" data-inline="false"></span>
+                                    Projects
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:package-24" data-inline="false"></span>
+                                    Packages
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- user info section -->
+                <section class="main-content">
+                    <!-- account info -->
+                    <div class="user-details">
+                        <div class="avatar-container">
+                            <img src="./images/avatar-big.jpeg" alt="user avatar" />
+                            <button class="status">
+                                <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
+                                status
+                            </button>
+                        </div>
+                        <div class="account-info">
+                            <h1 class="name">Victory Asokomeh</h1>
+                            <p class="username">victory-a</p>
+                        </div>
+                        <p class="bio">Frontend Developer & Mobile enthusiast</p>
+                    </div>
+
+                    <!-- repos view -->
+                    <div class="repos-section">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Find repository..." class="bottom-border" />
+                        </div>
+
+                        <!-- repos list -->
+                        <ul class="repo-list">
+                            <li class="repo">
+                                <div class="repo-title-row">
+                                    <a href="">mailserver</a>
+                                    <button class="star">
+                                        <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
+                                        Star
+                                    </button>
+                                </div>
+                                <p class="repo-description">mail server with send grid config</p>
+                                <div class="repo-metadata">
+                                    <span class="repo-language-detaila">
+                                        <span class="repo-language-color"></span>
+                                        <p>Javascript</p>
+                                    </span>
+                                    <p class="repo-activity-time">Updated yesterday</p>
+                                </div>
+                            </li>
+
+                            <li class="repo">
+                                <div class="repo-title-row">
+                                    <a href="">mailserver</a>
+                                    <button class="star">
+                                        <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
+                                        Star
+                                    </button>
+                                </div>
+                                <p class="repo-description">mail server with send grid config</p>
+                                <div class="repo-metadata">
+                                    <span class="repo-language-detaila">
+                                        <span class="repo-language-color"></span>
+                                        <p>Javascript</p>
+                                    </span>
+                                    <p class="repo-activity-time">Updated yesterday</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <footer>
+                    <span class="footer-brand">
+                        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+                    </span>
+                    <ul class="footer-links">
+                        <li>
+                            <p class="copyright">
+                                <i class="far fa-copyright"></i>
+                                2020 GitHub, Inc.
+                            </p>
+                        </li>
+                        <li><a href="">Terms</a></li>
+                        <li><a href="">Privacy</a></li>
+                        <li><a href="">Security</a></li>
+                        <li><a href="">Status</a></li>
+                        <li><a href="">Help</a></li>
+                        <li><a href="">Contact GitHub</a></li>
+                        <li><a href="">Pricing</a></li>
+                        <li><a href="">API</a></li>
+                        <li><a href="">Training</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">About</a></li>
+                    </ul>
+                </footer>
+            </main>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'breakpoint';
+@import 'base';
+@import 'typography';
+
+/* footer section */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 4rem 0;
+
+    .footer-brand {
+        display: flex;
+        align-items: flex-start;
+        
+        &.iconify {
+            margin-right: 2rem;
+            font-size: 24px;
+        }
+    }
+
+    .footer-brand .iconify {
+        margin-right: 2rem;
+        font-size: 24px;
+    }
+
+    .footer-brand .copyright {
+        white-space: nowrap;
+    }
+
+    ul.footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    ul.footer-links li {
+        margin: 0 auto;
+    }
+
+    .footer-links li:not(:last-of-type) {
+        margin-right: 3rem;
+    }
+}

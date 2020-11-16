@@ -1,0 +1,67 @@
+/* fontsizes */
+/**
+ * Breakpoint mixins
+ **/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 50%; }
+  @media (min-width: 769px) {
+    html {
+      font-size: 62.5%; } }
+
+body {
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  list-style-type: none; }
+
+section,
+footer {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto; }
+
+body {
+  font-weight: 400;
+  font-size: 14px;
+  color: #586069;
+  line-height: 1.7;
+  padding: 3rem; }
+
+/* footer section */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 4rem 0; }
+  footer .footer-brand {
+    display: flex;
+    align-items: flex-start; }
+    footer .footer-brand.iconify {
+      margin-right: 2rem;
+      font-size: 24px; }
+  footer .footer-brand .iconify {
+    margin-right: 2rem;
+    font-size: 24px; }
+  footer .footer-brand .copyright {
+    white-space: nowrap; }
+  footer ul.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%; }
+  footer ul.footer-links li {
+    margin: 0 auto; }
+  footer .footer-links li:not(:last-of-type) {
+    margin-right: 3rem; }

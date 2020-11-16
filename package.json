@@ -1,0 +1,14 @@
+{
+  "name": "github_clone",
+  "version": "1.0.0",
+  "description": "buycoins frontend challenge",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss style.css -w"
+  },
+  "author": "victory asokomeh",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
