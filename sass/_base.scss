@@ -16,6 +16,12 @@ html {
 
 body {
     box-sizing: border-box;
+    background-color: $white;
+    padding: 0 16px;
+
+    @include md {
+        padding: 0 24px;
+    }
 }
 
 a {
