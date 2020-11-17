@@ -84,23 +84,31 @@
                 margin-right: 0.3rem;
             }
         }
+
+        & .language-color-code {
+            position: relative;
+            background-color: transparent;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
     }
 
     & .forks,
     .stargazers {
         cursor: pointer;
 
-        .iconify {
+        & .iconify {
             font-size: 14.82px;
             color: $grey;
-
-            &:hover {
-                color: $blue;
-            }
         }
 
         &:hover {
             color: $blue;
+
+            & .iconify {
+                color: $blue;
+            }
         }
     }
 }
