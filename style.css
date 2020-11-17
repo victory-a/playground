@@ -17,7 +17,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #FFF;
   padding: 0 16px; }
   @media (min-width: 769px) {
     body {
@@ -42,29 +42,39 @@ body {
   color: #586069;
   line-height: 1.7; }
 
+.user-details img {
+  border-radius: 50%;
+  max-width: 28rem;
+  width: 100%; }
+
+.user-details h1 {
+  border: 1px solid red;
+  font-size: 26px;
+  line-height: 1.25; }
+
 .repos-section {
   padding: 0 0.8rem; }
   .repos-section .search-bar {
     padding: 1.6rem 0;
-    border-bottom: 1px solid #e1e4e8; }
+    border-bottom: 1px solid #E1E4E8; }
     .repos-section .search-bar input {
       width: 100%;
       padding: 0.5rem 1.2rem;
       border-radius: 6px;
       font-size: 14px;
       line-height: 20px;
-      border: 1px solid #e1e4e8;
+      border: 1px solid #E1E4E8;
       box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2); }
   .repos-section .repo-list li {
     padding: 2.4rem 0; }
     .repos-section .repo-list li:not(:last-of-type) {
-      border-bottom: 1px solid #e1e4e8; }
+      border-bottom: 1px solid #E1E4E8; }
   .repos-section .repo-list .repo-title-row {
     display: flex;
     align-items: center;
     justify-content: space-between; }
   .repos-section .repo-list a {
-    color: #0366d6;
+    color: #0366D6;
     font-weight: 600;
     font-size: 20px; }
   .repos-section .repo-list button {
@@ -77,9 +87,9 @@ body {
     font-weight: 500;
     line-height: 20px;
     text-align: center;
-    color: #24292e;
+    color: #24292E;
     cursor: pointer;
-    background-color: #fafbfc;
+    background-color: #FAFBFC;
     border-radius: 6px;
     border: 1px solid;
     border-color: rgba(27, 31, 35, 0.15);
@@ -87,7 +97,7 @@ body {
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color; }
     .repos-section .repo-list button:hover {
-      background-color: #f3f4f6;
+      background-color: #F3F4F6;
       border-color: rgba(27, 31, 35, 0.15);
       transition-duration: 0.1s; }
     .repos-section .repo-list button .iconify {
@@ -126,10 +136,10 @@ body {
       color: #586069; }
     .repos-section .forks:hover,
     .repos-section .stargazers:hover {
-      color: #0366d6; }
+      color: #0366D6; }
       .repos-section .forks:hover .iconify,
       .repos-section .stargazers:hover .iconify {
-        color: #0366d6; }
+        color: #0366D6; }
 
 /* footer section */
 footer {
@@ -139,9 +149,9 @@ footer {
   width: 100%;
   padding: 4rem 0;
   margin-top: 4rem;
-  border-top: 1px solid #e1e4e8; }
+  border-top: 1px solid #E1E4E8; }
   footer a {
-    color: #0366d6; }
+    color: #0366D6; }
     footer a:hover {
       text-decoration: underline; }
   footer .footer-brand {
@@ -153,10 +163,10 @@ footer {
         footer .footer-brand .iconify {
           margin-right: 2rem;
           font-size: 24px;
-          color: #d1d5da;
+          color: #D1D5DA;
           cursor: pointer; }
           footer .footer-brand .iconify:hover {
-            color: #6a737d; } }
+            color: #6A737D; } }
   footer .footer-links {
     display: flex;
     justify-content: center;
