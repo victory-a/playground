@@ -10,7 +10,8 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 50%; }
+  font-size: 50%;
+  scroll-behavior: smooth; }
   @media (min-width: 769px) {
     html {
       font-size: 62.5%; } }
@@ -42,22 +43,61 @@ body {
   color: #586069;
   line-height: 1.7; }
 
-.user-details img {
-  border-radius: 50%;
-  max-width: 28rem;
-  width: 100%; }
+.main-content {
+  display: flex; }
 
-.user-details h1 {
-  font-size: 26px;
-  line-height: 1.25;
-  color: #24292E; }
-
-.user-details .account-info {
-  padding: 1.6rem 0; }
-  .user-details .account-info p {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 24px; }
+.user-details {
+  width: 100%;
+  max-width: 280px;
+  padding: 0.8rem;
+  border: 1px solid red; }
+  @media (min-width: 769px) {
+    .user-details {
+      padding: 1.6rem; } }
+  .user-details .avatar-container {
+    position: relative; }
+  .user-details .status {
+    position: absolute;
+    left: 85%;
+    bottom: 20%;
+    z-index: 2;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    color: #586069;
+    background-color: #FFF;
+    padding: 10px;
+    border-radius: 2em;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04); }
+    .user-details .status .iconify {
+      font-size: 16px; }
+    .user-details .status p {
+      display: none;
+      font-size: 12px;
+      margin-left: 0.3rem; }
+    .user-details .status:hover {
+      color: #0366D6;
+      width: fit-content; }
+      .user-details .status:hover p {
+        display: initial; }
+  .user-details img {
+    border-radius: 50%;
+    max-width: 28rem;
+    width: 100%; }
+  .user-details h1 {
+    font-size: 26px;
+    line-height: 1.25;
+    color: #24292E; }
+  .user-details .account-info {
+    padding: 1.6rem 0; }
+    .user-details .account-info p {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px; }
+  .user-details .bio-info {
+    font-size: 16px;
+    color: #24292E; }
 
 .repos-section {
   padding: 0 0.8rem; }

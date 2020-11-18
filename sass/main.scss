@@ -5,7 +5,58 @@
 @import 'typography';
 
 // account info section
+.main-content {
+    display: flex;
+}
+
 .user-details {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem;
+    border: 1px solid red;
+
+    @include md {
+        padding: 1.6rem;
+    }
+
+    & .avatar-container {
+        position: relative;
+    }
+
+    & .status {
+        position: absolute;
+        left: 85%;
+        bottom: 20%;
+        z-index: 2;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        color: $grey;
+        background-color: $white;
+        padding: 10px;
+        border-radius: 2em;
+        border: 1px solid #e1e4e8;
+        box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+
+        .iconify {
+            font-size: 16px;
+        }
+
+        & p {
+            display: none;
+            font-size: $small-font-size;
+            margin-left: 0.3rem;
+        }
+
+        &:hover {
+            color: $blue;
+            width: fit-content;
+            & p {
+                display: initial;
+            }
+        }
+    }
+
     img {
         border-radius: 50%;
         max-width: 28rem;
@@ -26,6 +77,11 @@
             font-weight: 300;
             line-height: 24px;
         }
+    }
+
+    & .bio-info {
+        font-size: 16px;
+        color: $fauxblack;
     }
 }
 
