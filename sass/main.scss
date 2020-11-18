@@ -12,18 +12,22 @@
         width: 100%;
     }
 
-
     & h1 {
-        border: 1px solid red;
         font-size: 26px;
         line-height: 1.25;
+        color: $fauxblack;
     }
-    
+
+    & .account-info {
+        padding: 1.6rem 0;
+
+        & p {
+            font-size: $medium-font-size;
+            font-weight: 300;
+            line-height: 24px;
+        }
+    }
 }
-
-
-
-
 
 // repos section
 .repos-section {
@@ -71,7 +75,7 @@
             @include buttontransform;
 
             &:hover {
-                background-color: #F3F4F6;
+                background-color: #f3f4f6;
                 border-color: rgba(27, 31, 35, 0.15);
                 transition-duration: 0.1s;
             }
@@ -84,9 +88,14 @@
 
         & .repo-description {
             display: inline-block;
-            max-width: 50%;
             margin-bottom: 0.8rem;
             padding-right: 2.4rem;
+
+            max-width: 68%;
+
+            @include md {
+                max-width: 50%;
+            }
         }
     }
 
@@ -102,7 +111,7 @@
             margin-right: 1.6rem;
 
             & :first-child {
-                margin-right: 0.3rem;
+                margin-right: 0.4rem;
             }
         }
 

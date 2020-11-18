@@ -48,9 +48,16 @@ body {
   width: 100%; }
 
 .user-details h1 {
-  border: 1px solid red;
   font-size: 26px;
-  line-height: 1.25; }
+  line-height: 1.25;
+  color: #24292E; }
+
+.user-details .account-info {
+  padding: 1.6rem 0; }
+  .user-details .account-info p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px; }
 
 .repos-section {
   padding: 0 0.8rem; }
@@ -97,7 +104,7 @@ body {
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color; }
     .repos-section .repo-list button:hover {
-      background-color: #F3F4F6;
+      background-color: #f3f4f6;
       border-color: rgba(27, 31, 35, 0.15);
       transition-duration: 0.1s; }
     .repos-section .repo-list button .iconify {
@@ -105,9 +112,12 @@ body {
       margin-right: 4px; }
   .repos-section .repo-list .repo-description {
     display: inline-block;
-    max-width: 50%;
     margin-bottom: 0.8rem;
-    padding-right: 2.4rem; }
+    padding-right: 2.4rem;
+    max-width: 68%; }
+    @media (min-width: 769px) {
+      .repos-section .repo-list .repo-description {
+        max-width: 50%; } }
   .repos-section .repo-metadata {
     display: flex;
     align-items: center;
@@ -120,7 +130,7 @@ body {
       align-items: center;
       margin-right: 1.6rem; }
       .repos-section .repo-metadata > span :first-child {
-        margin-right: 0.3rem; }
+        margin-right: 0.4rem; }
     .repos-section .repo-metadata .language-color-code {
       position: relative;
       background-color: transparent;
