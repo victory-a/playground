@@ -44,42 +44,83 @@ body {
   line-height: 1.7; }
 
 .main-content {
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
+  @media (min-width: 769px) {
+    .main-content {
+      margin-top: 2.4rem;
+      flex-direction: row; } }
 
 .user-details {
   width: 100%;
-  max-width: 280px;
-  padding: 0.8rem; }
-  @media (min-width: 769px) {
-    .user-details {
-      padding: 1.6rem; } }
+  max-width: 280px; }
+  .user-details .empty {
+    display: none; }
+    @media (min-width: 769px) {
+      .user-details .empty {
+        display: block;
+        width: 100%;
+        height: 42px;
+        border-bottom: 1px solid #E1E4E8; } }
+  .user-details .container {
+    padding: 0 1.6rem; }
+    @media screen and (max-width: 768px) {
+      .user-details .container {
+        width: calc(100vw - 32px); } }
+    @media (min-width: 769px) {
+      .user-details .container {
+        margin-top: -3rem; } }
   .user-details .avatar-container {
-    position: relative; }
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 0.3fr 1fr;
+    padding-right: 16px; }
+    @media screen and (max-width: 768px) {
+      .user-details .avatar-container {
+        width: calc(100vw - 32px); } }
+    @media (min-width: 769px) {
+      .user-details .avatar-container {
+        padding-right: 0;
+        display: block; }
+        .user-details .avatar-container .hide-md {
+          display: none; } }
   .user-details .status {
-    position: absolute;
     left: 85%;
-    bottom: 20%;
-    z-index: 2;
-    height: 38px;
+    bottom: 0;
+    height: 33px;
+    border-radius: 6px;
+    width: 100%;
     display: flex;
     align-items: center;
     color: #586069;
     background-color: #FFF;
     padding: 10px;
-    border-radius: 2em;
     border: 1px solid #e1e4e8;
-    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04); }
+    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+    white-space: nowrap;
+    grid-column-start: span 2; }
     .user-details .status .iconify {
       font-size: 16px; }
+    .user-details .status:hover {
+      color: #0366D6; }
     .user-details .status p {
-      display: none;
       font-size: 12px;
       margin-left: 0.3rem; }
-    .user-details .status:hover {
-      color: #0366D6;
-      width: fit-content; }
-      .user-details .status:hover p {
-        display: initial; }
+      @media (min-width: 769px) {
+        .user-details .status p {
+          display: none; } }
+    @media (min-width: 769px) {
+      .user-details .status {
+        left: 85%;
+        bottom: 20%;
+        position: absolute;
+        border-radius: 2em;
+        height: 38px;
+        z-index: 2;
+        width: fit-content; }
+        .user-details .status:hover p {
+          display: initial; } }
   .user-details img {
     border-radius: 50%;
     max-width: 28rem;
@@ -88,6 +129,11 @@ body {
     font-size: 26px;
     line-height: 1.25;
     color: #24292E; }
+  .user-details .hide-sm {
+    display: none; }
+    @media (min-width: 769px) {
+      .user-details .hide-sm {
+        display: initial; } }
   .user-details .account-info {
     padding: 1.6rem 0; }
     .user-details .account-info p {
@@ -98,34 +144,59 @@ body {
     font-size: 16px;
     color: #24292E; }
 
-.tabs-section ul {
-  margin-top: 2.4rem;
-  display: flex;
-  max-width: 60rem; }
-
-.tabs-section li {
-  width: 100%; }
-  .tabs-section li a {
+.tabs-section {
+  border-bottom: 1px solid #E1E4E8; }
+  .tabs-section ul {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem; }
-    .tabs-section li a span {
-      margin-right: 0.4px; }
+    justify-content: flex-start; }
+  .tabs-section li {
+    padding: 0.8rem 1.6rem;
+    white-space: nowrap;
+    font-size: 14px;
+    border-bottom: 2px solid transparent; }
+    .tabs-section li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #24292E; }
+      .tabs-section li a .iconify {
+        display: none;
+        font-size: 16px;
+        margin-right: 8px;
+        color: #959DA5; }
+        @media (min-width: 769px) {
+          .tabs-section li a .iconify {
+            display: initial; } }
+    .tabs-section li.active-tab {
+      border-color: #F9826C;
+      font-weight: 600; }
+      .tabs-section li.active-tab .iconify {
+        color: #24292E; }
+    .tabs-section li #repo-count {
+      padding: 0 6px;
+      margin-left: 4px;
+      font-size: 12px;
+      font-size: 500;
+      line-height: 18px;
+      background-color: rgba(209, 213, 218, 0.5);
+      border-radius: 2em;
+      border: 1px solid transparent; }
 
-.repos-section {
-  padding: 0 0.8rem; }
-  .repos-section .search-bar {
-    padding: 1.6rem 0;
-    border-bottom: 1px solid #E1E4E8; }
-    .repos-section .search-bar input {
-      width: 100%;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      font-size: 14px;
-      line-height: 20px;
-      border: 1px solid #E1E4E8;
-      box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2); }
+.repos-section .search-bar {
+  padding: 1.6rem 0;
+  margin: 0 1.6rem;
+  border-bottom: 1px solid #E1E4E8; }
+  .repos-section .search-bar input {
+    width: 100%;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 20px;
+    border: 1px solid #E1E4E8;
+    box-shadow: inset 0 1px 0 rgba(225, 228, 232, 0.2); }
+
+.repos-section .repo-list {
+  padding: 0 1.6rem; }
   .repos-section .repo-list li {
     padding: 2.4rem 0; }
     .repos-section .repo-list li:not(:last-of-type) {
@@ -172,38 +243,40 @@ body {
     @media (min-width: 769px) {
       .repos-section .repo-list .repo-description {
         max-width: 50%; } }
-  .repos-section .repo-metadata {
+
+.repos-section .repo-metadata {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0.8rem;
+  font-size: 12px; }
+  .repos-section .repo-metadata > span {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: 0.8rem;
-    font-size: 12px; }
-    .repos-section .repo-metadata > span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 1.6rem; }
-      .repos-section .repo-metadata > span :first-child {
-        margin-right: 0.4rem; }
-    .repos-section .repo-metadata .language-color-code {
-      position: relative;
-      background-color: transparent;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%; }
-  .repos-section .forks,
-  .repos-section .stargazers {
-    cursor: pointer; }
-    .repos-section .forks .iconify,
-    .repos-section .stargazers .iconify {
-      font-size: 14.82px;
-      color: #586069; }
-    .repos-section .forks:hover,
-    .repos-section .stargazers:hover {
+    margin-right: 1.6rem; }
+    .repos-section .repo-metadata > span :first-child {
+      margin-right: 0.4rem; }
+  .repos-section .repo-metadata .language-color-code {
+    position: relative;
+    background-color: transparent;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%; }
+
+.repos-section .forks,
+.repos-section .stargazers {
+  cursor: pointer; }
+  .repos-section .forks .iconify,
+  .repos-section .stargazers .iconify {
+    font-size: 14.82px;
+    color: #586069; }
+  .repos-section .forks:hover,
+  .repos-section .stargazers:hover {
+    color: #0366D6; }
+    .repos-section .forks:hover .iconify,
+    .repos-section .stargazers:hover .iconify {
       color: #0366D6; }
-      .repos-section .forks:hover .iconify,
-      .repos-section .stargazers:hover .iconify {
-        color: #0366D6; }
 
 /* footer section */
 footer {
