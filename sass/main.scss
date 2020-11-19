@@ -4,16 +4,18 @@
 @import 'mixins';
 @import 'typography';
 
-// account info section
+
 .main-content {
     display: flex;
+    // border: 1px solid red;
 }
 
+// account info section
 .user-details {
     width: 100%;
     max-width: 280px;
     padding: 0.8rem;
-    border: 1px solid red;
+    // border: 1px solid red;
 
     @include md {
         padding: 1.6rem;
@@ -82,6 +84,33 @@
     & .bio-info {
         font-size: 16px;
         color: $fauxblack;
+    }
+}
+
+// tabs section
+.tabs-section {
+    // border: 1px solid red;
+    & ul {
+        margin-top: 2.4rem;
+        // border: 1px solid red;
+        display: flex;
+        // justify-content: stretch;
+        max-width: 60rem;
+    }
+
+    & li {
+        width: 100%;
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+
+            & span {
+                margin-right: 0.4px;
+                // border: 1px solid red;
+            }
+        }
     }
 }
 

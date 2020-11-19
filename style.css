@@ -30,7 +30,7 @@ a {
 ul {
   list-style-type: none; }
 
-section,
+main,
 footer {
   width: 100%;
   max-width: 120rem;
@@ -49,8 +49,7 @@ body {
 .user-details {
   width: 100%;
   max-width: 280px;
-  padding: 0.8rem;
-  border: 1px solid red; }
+  padding: 0.8rem; }
   @media (min-width: 769px) {
     .user-details {
       padding: 1.6rem; } }
@@ -98,6 +97,21 @@ body {
   .user-details .bio-info {
     font-size: 16px;
     color: #24292E; }
+
+.tabs-section ul {
+  margin-top: 2.4rem;
+  display: flex;
+  max-width: 60rem; }
+
+.tabs-section li {
+  width: 100%; }
+  .tabs-section li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem; }
+    .tabs-section li a span {
+      margin-right: 0.4px; }
 
 .repos-section {
   padding: 0 0.8rem; }
