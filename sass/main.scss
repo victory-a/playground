@@ -4,6 +4,148 @@
 @import 'mixins';
 @import 'typography';
 
+// navbar
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $fauxblack;
+    padding: 15px 32px;
+
+    & .nav-group-left {
+        display: flex;
+        align-items: center;
+    }
+
+    & .nav-toggle {
+        display: none;
+    }
+
+    & .nav-brand {
+        & .iconify {
+            font-size: 32px;
+            color: $white;
+            transition: color 0.2s;
+            vertical-align: bottom;
+            margin-right: 16px;
+
+            &:hover {
+                color: $spindle;
+            }
+        }
+    }
+
+    & .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid $shadow-grey;
+        font-weight: 400;
+        border-radius: 7px;
+        background-color: $fauxblack;
+        margin-right: 16px;
+        height: 30px;
+        width: 272px;
+
+        img {
+            margin-right: 8px;
+        }
+
+        input {
+            background: none;
+            font-size: inherit;
+            color: $white;
+            box-shadow: none;
+            width: 100%;
+            outline: none;
+            text-indent: 10px;
+            border-style: none;
+            min-height: 28px;
+
+            &::-webkit-input-placeholder {
+                color: $iron;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+
+    & .nav-list {
+        display: flex;
+        align-items: center;
+
+        & a {
+            font-weight: 600;
+            font-size: $default-font-size;
+            color: $white;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: hsla(0, 0%, 100%, 0.7);
+            }
+        }
+
+        & li:not(:last-of-type) {
+            margin-right: 1.6rem;
+        }
+
+        & .sm {
+            @include rwd(1011) {
+                display: none;
+            }
+        }
+
+        & .lg {
+            display: none;
+            @include rwd(1011) {
+                display: initial;
+            }
+        }
+    }
+
+    & .nav-group-right {
+        display: flex;
+        align-items: center;
+        flex-wrap: no-wrap;
+
+        img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        & .notification-bell,
+        & .create,
+        & .account {
+            color: $white;
+
+            &:hover {
+                color: hsla(0, 0%, 100%, 0.7);
+            }
+        }
+
+        .iconify {
+            font-size: 16px;
+        }
+
+        & .fa-caret-down {
+            // border: 1px solid red;
+            vertical-align: middle;
+            font-size: 13px;
+            margin-left: 2px;
+        }
+
+        & > div {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &:not(:last-of-type) {
+                margin-right: 16px;
+            }
+        }
+    }
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
@@ -17,7 +159,8 @@
 // account info section
 .user-details {
     width: 100%;
-    max-width: 280px;
+    max-width: 312px;
+    // border: 1px solid red;
 
     & .empty {
         display: none;
@@ -48,6 +191,7 @@
         gap: 2rem;
         grid-template-columns: 0.3fr 1fr;
         padding-right: 16px;
+        // border: 1px solid red;
 
         @media screen and (max-width: 768px) {
             width: calc(100vw - 32px);
@@ -145,6 +289,11 @@
     & .bio-info {
         font-size: 16px;
         color: $fauxblack;
+        padding: 8px 0;
+
+        @include md {
+            padding: 0;
+        }
     }
 }
 
@@ -243,6 +392,10 @@
             color: $blue;
             font-weight: 600;
             font-size: $medium-font-size;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         button {
@@ -292,7 +445,7 @@
 
         & .language-color-code {
             position: relative;
-            background-color: transparent;
+            background-color: red;
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -339,7 +492,7 @@ footer {
     .footer-brand {
         display: none;
 
-        @include rwd(1000) {
+        @include xl {
             display: flex;
             align-items: flex-start;
 
@@ -361,8 +514,9 @@ footer {
         flex-wrap: wrap;
         width: 100%;
 
-        @include rwd(940) {
+        @include xl {
             justify-content: space-between;
+            padding: 0;
         }
 
         & li {

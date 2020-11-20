@@ -18,11 +18,7 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: #FFF;
-  padding: 0 16px; }
-  @media (min-width: 769px) {
-    body {
-      padding: 0 24px; } }
+  background-color: #FFF; }
 
 a {
   text-decoration: none; }
@@ -30,10 +26,19 @@ a {
 ul {
   list-style-type: none; }
 
+main {
+  padding: 0 16px;
+  max-width: 128rem; }
+  @media (min-width: 769px) {
+    main {
+      padding: 0 24px; } }
+
+footer {
+  max-width: 110rem; }
+
 main,
 footer {
   width: 100%;
-  max-width: 120rem;
   margin: 0 auto; }
 
 body {
@@ -42,6 +47,100 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #586069;
   line-height: 1.7; }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #24292E;
+  padding: 15px 32px; }
+  nav .nav-group-left {
+    display: flex;
+    align-items: center; }
+  nav .nav-toggle {
+    display: none; }
+  nav .nav-brand .iconify {
+    font-size: 32px;
+    color: #FFF;
+    transition: color 0.2s;
+    vertical-align: bottom;
+    margin-right: 16px; }
+    nav .nav-brand .iconify:hover {
+      color: #BEBFC1; }
+  nav .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #444D56;
+    font-weight: 400;
+    border-radius: 7px;
+    background-color: #24292E;
+    margin-right: 16px;
+    height: 30px;
+    width: 272px; }
+    nav .search-bar img {
+      margin-right: 8px; }
+    nav .search-bar input {
+      background: none;
+      font-size: inherit;
+      color: #FFF;
+      box-shadow: none;
+      width: 100%;
+      outline: none;
+      text-indent: 10px;
+      border-style: none;
+      min-height: 28px; }
+      nav .search-bar input::-webkit-input-placeholder {
+        color: #C7C9CA;
+        letter-spacing: 0.3px; }
+  nav .nav-list {
+    display: flex;
+    align-items: center; }
+    nav .nav-list a {
+      font-weight: 600;
+      font-size: 14px;
+      color: #FFF;
+      transition: color 0.2s ease; }
+      nav .nav-list a:hover {
+        color: rgba(255, 255, 255, 0.7); }
+    nav .nav-list li:not(:last-of-type) {
+      margin-right: 1.6rem; }
+    @media (min-width: 1011px) {
+      nav .nav-list .sm {
+        display: none; } }
+    nav .nav-list .lg {
+      display: none; }
+      @media (min-width: 1011px) {
+        nav .nav-list .lg {
+          display: initial; } }
+  nav .nav-group-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: no-wrap; }
+    nav .nav-group-right img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      object-fit: cover; }
+    nav .nav-group-right .notification-bell,
+    nav .nav-group-right .create,
+    nav .nav-group-right .account {
+      color: #FFF; }
+      nav .nav-group-right .notification-bell:hover,
+      nav .nav-group-right .create:hover,
+      nav .nav-group-right .account:hover {
+        color: rgba(255, 255, 255, 0.7); }
+    nav .nav-group-right .iconify {
+      font-size: 16px; }
+    nav .nav-group-right .fa-caret-down {
+      vertical-align: middle;
+      font-size: 13px;
+      margin-left: 2px; }
+    nav .nav-group-right > div {
+      display: flex;
+      align-items: center;
+      cursor: pointer; }
+      nav .nav-group-right > div:not(:last-of-type) {
+        margin-right: 16px; }
 
 .main-content {
   display: flex;
@@ -53,7 +152,7 @@ body {
 
 .user-details {
   width: 100%;
-  max-width: 280px; }
+  max-width: 312px; }
   .user-details .empty {
     display: none; }
     @media (min-width: 769px) {
@@ -142,7 +241,11 @@ body {
       line-height: 24px; }
   .user-details .bio-info {
     font-size: 16px;
-    color: #24292E; }
+    color: #24292E;
+    padding: 8px 0; }
+    @media (min-width: 769px) {
+      .user-details .bio-info {
+        padding: 0; } }
 
 .tabs-section {
   border-bottom: 1px solid #E1E4E8; }
@@ -209,6 +312,8 @@ body {
     color: #0366D6;
     font-weight: 600;
     font-size: 20px; }
+    .repos-section .repo-list a:hover {
+      text-decoration: underline; }
   .repos-section .repo-list button {
     display: flex;
     justify-content: center;
@@ -259,7 +364,7 @@ body {
       margin-right: 0.4rem; }
   .repos-section .repo-metadata .language-color-code {
     position: relative;
-    background-color: transparent;
+    background-color: red;
     width: 12px;
     height: 12px;
     border-radius: 50%; }
@@ -293,7 +398,7 @@ footer {
       text-decoration: underline; }
   footer .footer-brand {
     display: none; }
-    @media (min-width: 1000px) {
+    @media (min-width: 1200px) {
       footer .footer-brand {
         display: flex;
         align-items: flex-start; }
@@ -310,9 +415,10 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     width: 100%; }
-    @media (min-width: 940px) {
+    @media (min-width: 1200px) {
       footer .footer-links {
-        justify-content: space-between; } }
+        justify-content: space-between;
+        padding: 0; } }
     footer .footer-links li {
       font-size: 12px; }
       footer .footer-links li:not(:last-of-type) {
