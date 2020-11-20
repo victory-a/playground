@@ -10,6 +10,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     background-color: $fauxblack;
+    width: 100vw;
     padding: 15px 32px;
 
     & .nav-group-left {
@@ -18,7 +19,13 @@ nav {
     }
 
     & .nav-toggle {
-        display: none;
+        align-self: center;
+        color: $white;
+        font-size: 24px;
+
+        @include md {
+            display: none;
+        }
     }
 
     & .nav-brand {
@@ -27,7 +34,7 @@ nav {
             color: $white;
             transition: color 0.2s;
             vertical-align: bottom;
-            margin-right: 16px;
+            // margin-right: 16px;
 
             &:hover {
                 color: $spindle;
@@ -42,12 +49,14 @@ nav {
         font-weight: 400;
         border-radius: 7px;
         background-color: $fauxblack;
-        margin-right: 16px;
+        margin: 0 16px;
         height: 30px;
         width: 272px;
 
         img {
             margin-right: 8px;
+            width: 19px;
+            height: 20px;
         }
 
         input {
@@ -113,6 +122,20 @@ nav {
             object-fit: cover;
         }
 
+        & .notification-bell {
+            position: relative;
+
+            & .indicator {
+                position: absolute;
+                width: 8.5px;
+                height: 8.5px;
+                border-radius: 50%;
+                top: -3px;
+                right: 1px;
+                background-color: #006eed;
+            }
+        }
+
         & .notification-bell,
         & .create,
         & .account {
@@ -128,10 +151,8 @@ nav {
         }
 
         & .fa-caret-down {
-            // border: 1px solid red;
-            vertical-align: middle;
             font-size: 13px;
-            margin-left: 2px;
+            margin-left: 3px;
         }
 
         & > div {
@@ -143,6 +164,22 @@ nav {
                 margin-right: 16px;
             }
         }
+    }
+
+    @include dskf(768) {
+        // hide nav elements on smaller screens
+        & .nav-list,
+        & .search-bar,
+        & .nav-group-right .create,
+        & .nav-group-right .account {
+            display: none;
+        }
+
+        & .nav-group-right > div.notification-bell {
+            margin-right: 0;
+        }
+
+        padding: 16px;
     }
 }
 
@@ -160,7 +197,6 @@ nav {
 .user-details {
     width: 100%;
     max-width: 312px;
-    // border: 1px solid red;
 
     & .empty {
         display: none;
@@ -176,7 +212,7 @@ nav {
     .container {
         padding: 0 1.6rem;
 
-        @media screen and (max-width: 768px) {
+        @include dskf(768) {
             width: calc(100vw - 32px);
         }
 
@@ -191,10 +227,11 @@ nav {
         gap: 2rem;
         grid-template-columns: 0.3fr 1fr;
         padding-right: 16px;
-        // border: 1px solid red;
 
-        @media screen and (max-width: 768px) {
+        @include dskf(768) {
+            // prevents contents from being shrinked by inner padding
             width: calc(100vw - 32px);
+            padding-top: 0.5px;
         }
 
         @include md {
@@ -221,6 +258,8 @@ nav {
         border: 1px solid #e1e4e8;
         box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
         white-space: nowrap;
+        cursor: pointer;
+        // take up full width on mobile
         grid-column-start: span 2;
 
         .iconify {
@@ -258,8 +297,12 @@ nav {
 
     img {
         border-radius: 50%;
+        // width: 100%;
+        // height: 100%;
         max-width: 28rem;
+        max-height: 28rem;
         width: 100%;
+        cursor: pointer;
     }
 
     & h1 {
@@ -300,10 +343,11 @@ nav {
 // tabs section
 .tabs-section {
     border-bottom: $thin-grey-border;
-
+    
     & ul {
         display: flex;
         justify-content: flex-start;
+        overflow-x: scroll;
     }
 
     & li {
@@ -317,6 +361,7 @@ nav {
             align-items: center;
             justify-content: center;
             color: $fauxblack;
+            cursor: pointer;
 
             & .iconify {
                 display: none;
@@ -327,6 +372,12 @@ nav {
                 @include md {
                     display: initial;
                 }
+            }
+        }
+
+        &:not(.active-tab) {
+            &:hover {
+                border-color: $no-fill;
             }
         }
 
@@ -497,7 +548,7 @@ footer {
             align-items: flex-start;
 
             & .iconify {
-                margin-right: 2rem;
+                // margin-right: 2rem;
                 font-size: 24px;
                 color: $no-fill;
                 cursor: pointer;
@@ -521,6 +572,11 @@ footer {
 
         & li {
             font-size: $small-font-size;
+
+            &:first-of-type {
+                margin-left: 2rem;
+            }
+
             &:not(:last-of-type) {
                 margin-right: 3rem;
             }

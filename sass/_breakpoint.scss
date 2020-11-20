@@ -47,3 +47,10 @@ $screen-xl-min: 1200px;
         @content;
     }
 }
+
+//desktop first exceptions
+@mixin dskf($screen) {
+    @media (max-width: $screen+'px') {
+        @content;
+    }
+}

@@ -4,10 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <meta name="description" content="Github repositories page clone, done for buycoins frontend developer recruitment"/>
+        
         <!--Font awesome CDN-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-        <!--Octicon CDN-->
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
         <link rel="stylesheet" href="style.css" />
         <title>Your Repositories</title>
@@ -16,15 +16,14 @@
     <body>
         <header>
             <nav>
+                <span class="iconify nav-toggle" data-icon="octicon:three-bars-16" data-inline="false"></span>
+
                 <div class="nav-group-left">
-                    <div class="nav-toggle">
-                        <span class="iconify" data-icon="octicon:three-bars-16" data-inline="false"></span>
-                    </div>
-                    <a href="" class="nav-brand">
+                    <a href="" class="nav-brand" aria-label="github home">
                         <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
                     </a>
                     <div class="search-bar">
-                        <input type="text" placeholder="Search or jump to..." />
+                        <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
                         <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
                     </div>
                     <ul class="nav-list">
@@ -35,16 +34,17 @@
                         <li class="nav-item"><a href="" class="nav-link">Explore</a></li>
                     </ul>
                 </div>
+
                 <div class="nav-group-right">
                     <div class="notification-bell">
                         <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
-                        <span class="notification-indicator"></span>
+                        <span class="indicator"></span>
                     </div>
                     <div class="create">
                         <span class="iconify" data-icon="octicon:plus-16" data-inline="false"></span>
                         <i class="fas fa-caret-down"></i>
                     </div>
-                    <div class="account">
+                    <div class="account" aria-label="View profile menu, settings and more">
                         <img src="./images/avatar-small.jpeg" alt="user avatar" />
                         <i class="fas fa-caret-down"></i>
                     </div>
@@ -58,16 +58,16 @@
                 <div class="empty"></div>
                 <div class="container">
                     <div class="avatar-container">
-                        <img src="./images/avatar-big.jpeg" alt="user avatar" id="avatar" />
+                        <img src="./images/avatar-big.jpeg" alt="user avatar" id="avatar" tabindex="0" />
 
                         <div class="account-info hide-md">
                             <h1 id="name">Victory Asokomeh</h1>
                             <p id="username">victory-a</p>
                         </div>
-                        <a href="" class="status">
+                        <button href="" class="status">
                             <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
                             <p>Set status</p>
-                        </a>
+                        </button>
                     </div>
                     <div class="account-info hide-sm">
                         <h1 id="name">Victory Asokomeh</h1>
@@ -83,26 +83,26 @@
                     <ul class="tab-list">
                         <li class="tab">
                             <a href="">
-                                <span class="iconify" data-icon="octicon:book-24" data-inline="false"></span>
+                                <span class="iconify" data-icon="octicon:book-16" data-inline="false"></span>
                                 Overview
                             </a>
                         </li>
                         <li class="tab active-tab">
                             <a href="">
-                                <span class="iconify" data-icon="octicon:repo-24" data-inline="false"></span>
+                                <span class="iconify" data-icon="octicon:repo-16" data-inline="false"></span>
                                 Repositories
                                 <span id="repo-count">41</span>
                             </a>
                         </li>
                         <li class="tab">
                             <a href="">
-                                <span class="iconify" data-icon="octicon:project-24" data-inline="false"></span>
+                                <span class="iconify" data-icon="octicon:project-16" data-inline="false"></span>
                                 Projects
                             </a>
                         </li>
                         <li class="tab">
                             <a href="">
-                                <span class="iconify" data-icon="octicon:package-24" data-inline="false"></span>
+                                <span class="iconify" data-icon="octicon:package-16" data-inline="false"></span>
                                 Packages
                             </a>
                         </li>
@@ -111,7 +111,7 @@
 
                 <!-- search bar -->
                 <div class="search-bar">
-                    <input type="text" placeholder="Find a repository..." class="bottom-border" />
+                    <input type="text" placeholder="Find a repository..." aria-label="search through github" />
                 </div>
 
                 <!-- repos list -->
@@ -128,18 +128,18 @@
                             </button>
                         </div>
                         <div class="repo-metadata">
-                            <span class="repo-language-detaila">
+                            <span class="repo-language-details">
                                 <span id="langiage-color" class="language-color-code"></span>
                                 <p id="language">Javascript</p>
                             </span>
                             <span class="stargazers">
-                                <a href="">
+                                <a href="" aria-label="repo star stats">
                                     <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
                                 </a>
                                 <p id="stargazer-count">10</p>
                             </span>
                             <span class="forks">
-                                <a href="">
+                                <a href="" aria-label="repo forks">
                                     <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
                                 </a>
                                 <p id="fork-count">10</p>
@@ -243,7 +243,7 @@
                         </div>
                     </li>
 
-                    <!-- <li>
+                    <li>
                         <a href="">mailserver</a>
                         <div class="repo-title-row">
                             <p class="repo-description">
@@ -273,15 +273,15 @@
                             </span>
                             <p class="repo-activity-time">Updated yesterday</p>
                         </div>
-                    </li> -->
+                    </li>
                 </ul>
             </section>
         </main>
 
         <footer>
-            <span class="footer-brand">
+            <a class="footer-brand" aria-label="github home" tabindex="0">
                 <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
-            </span>
+            </a>
             <ul class="footer-links">
                 <li>
                     <p class="copyright">
@@ -303,6 +303,8 @@
             </ul>
         </footer>
 
+        <!--Octicon CDN-->
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
         <script src="./index.js"></script>
     </body>
 </html>
