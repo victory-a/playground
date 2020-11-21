@@ -307,16 +307,31 @@ nav {
     max-width: 312px;
 
     & .empty {
-        
         display: none;
 
         @include md {
-            display: block;
+            &.visible {
+                visibility: visible;
+            }
+
+            visibility: hidden;
             width: 100%;
             height: 42px;
-            background-color: transparent;
-            border-bottom: $thin-grey-border;
-            border-color: transparent;
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 32px;
+                height: 32px;
+                margin-top: 8px;
+                margin-right: 8px;
+            }
+
+            p {
+                padding-top: 8px;
+                color: $fauxblack;
+                font-weight: 600;
+            }
         }
     }
 
