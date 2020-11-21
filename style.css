@@ -59,7 +59,7 @@ nav .nav-toggle {
   color: #FFF;
   font-size: 24px;
   cursor: pointer;
-  z-index: 50; }
+  z-index: 100; }
   @media (min-width: 769px) {
     nav .nav-toggle {
       display: none; } }
@@ -255,7 +255,9 @@ nav .profile-link img {
         display: block;
         width: 100%;
         height: 42px;
-        border-bottom: 1px solid #E1E4E8; } }
+        background-color: transparent;
+        border-bottom: 1px solid #E1E4E8;
+        border-color: transparent; } }
   .user-details .container {
     padding: 0 1.6rem; }
     @media (max-width: 768px) {
@@ -351,7 +353,14 @@ nav .profile-link img {
       .user-details .bio-info {
         padding: 0; } }
 
+.empty,
 .tabs-section {
+  z-index: 50;
+  position: sticky;
+  top: 0; }
+
+.tabs-section {
+  background-color: #FFF;
   border-bottom: 1px solid #E1E4E8; }
   .tabs-section ul {
     display: flex;

@@ -21,7 +21,7 @@ nav {
         color: $white;
         font-size: 24px;
         cursor: pointer;
-        z-index: 50;
+        z-index: 100;
 
         @include md {
             display: none;
@@ -307,13 +307,16 @@ nav {
     max-width: 312px;
 
     & .empty {
+        
         display: none;
 
         @include md {
             display: block;
             width: 100%;
             height: 42px;
+            background-color: transparent;
             border-bottom: $thin-grey-border;
+            border-color: transparent;
         }
     }
 
@@ -455,8 +458,17 @@ nav {
     }
 }
 
+// make tabs section sticky at top 0
+.empty,
+.tabs-section {
+    z-index: 50;
+    position: sticky;
+    top: 0;
+}
+
 // tabs section
 .tabs-section {
+    background-color: $white;
     border-bottom: $thin-grey-border;
 
     & ul {
