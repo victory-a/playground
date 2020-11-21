@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta name="description" content="Github repositories page clone, done for buycoins frontend developer recruitment"/>
-        
+        <meta name="description" content="Github repositories page clone, done for buycoins frontend developer recruitment" />
+
         <!--Font awesome CDN-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
 
@@ -15,9 +15,7 @@
 
     <body>
         <header>
-            <nav>
-                <span class="iconify nav-toggle" data-icon="octicon:three-bars-16" data-inline="false"></span>
-
+            <nav class="nav-lg">
                 <div class="nav-group-left">
                     <a href="" class="nav-brand" aria-label="github home">
                         <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
@@ -27,11 +25,11 @@
                         <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
                     </div>
                     <ul class="nav-list">
-                        <li class="nav-item lg"><a href="" class="nav-link">Pull requests</a></li>
-                        <li class="nav-item sm"><a href="" class="nav-link">Pulls</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Issues</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Marketplace</a></li>
-                        <li class="nav-item"><a href="" class="nav-link">Explore</a></li>
+                        <li class="nav-item lg"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
+                        <li class="nav-item sm"><a href="" class="nav-link" aria-label="Pull requests you created">Pulls</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
                     </ul>
                 </div>
 
@@ -50,6 +48,43 @@
                     </div>
                 </div>
             </nav>
+
+            <!-- nav components to be displayed on smaller screens -->
+            <nav class="nav-sm" id="mobile-nav">
+                <div class="nav-topbar">
+                    <span class="iconify nav-toggle" data-icon="octicon:three-bars-16" data-inline="false" onclick="{tobbleMobileNav()}"></span>
+                    <a href="" class="nav-brand" aria-label="github home">
+                        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+                    </a>
+                    <div class="notification-bell">
+                        <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
+                        <span class="indicator"></span>
+                    </div>
+                </div>
+
+                <div class="nav-dropbar">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
+                        <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
+                    </div>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Name">Dashboard</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
+                        <li class="nav-item"><a href="" class="nav-link" aria-label="Settings">Settings</a></li>
+                    </ul>
+                    <a class="profile-link" href="" aria-label="profile">
+                        <img src="./images/avatar-small.jpeg" alt="user avatar" />
+                        <span id="username">victory-a</span>
+                    </a>
+                    <a class="signout" href="" aria-label="Sign out">
+                        <span class="iconify" data-icon="octicon:sign-out-16" data-inline="false"></span>
+                        <p>Sign out</p>
+                    </a>
+                </div>
+            </nav>
         </header>
 
         <main class="main-content">
@@ -64,7 +99,7 @@
                             <h1 id="name">Victory Asokomeh</h1>
                             <p id="username">victory-a</p>
                         </div>
-                        <button href="" class="status">
+                        <button class="status">
                             <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
                             <p>Set status</p>
                         </button>
@@ -147,39 +182,8 @@
                             <p class="repo-activity-time">Updated yesterday</p>
                         </div>
                     </li>
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
 
-                    <li>
+                    <!-- <li>
                         <a href="">mailserver</a>
                         <div class="repo-title-row">
                             <p class="repo-description">
@@ -209,9 +213,9 @@
                             </span>
                             <p class="repo-activity-time">Updated yesterday</p>
                         </div>
-                    </li>
+                    </li> -->
 
-                    <li>
+                    <!-- <li>
                         <a href="">mailserver</a>
                         <div class="repo-title-row">
                             <p class="repo-description">
@@ -241,9 +245,9 @@
                             </span>
                             <p class="repo-activity-time">Updated yesterday</p>
                         </div>
-                    </li>
+                    </li> -->
 
-                    <li>
+                    <!-- <li>
                         <a href="">mailserver</a>
                         <div class="repo-title-row">
                             <p class="repo-description">
@@ -273,7 +277,39 @@
                             </span>
                             <p class="repo-activity-time">Updated yesterday</p>
                         </div>
-                    </li>
+                    </li> -->
+
+                    <!-- <li>
+                        <a href="">mailserver</a>
+                        <div class="repo-title-row">
+                            <p class="repo-description">
+                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
+                            </p>
+                            <button class="star">
+                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
+                                Star
+                            </button>
+                        </div>
+                        <div class="repo-metadata">
+                            <span class="repo-language-detaila">
+                                <span id="langiage-color" class="language-color-code"></span>
+                                <p id="language">Javascript</p>
+                            </span>
+                            <span class="stargazers">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
+                                </a>
+                                <p id="stargazer-count">10</p>
+                            </span>
+                            <span class="forks">
+                                <a href="">
+                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
+                                </a>
+                                <p id="fork-count">10</p>
+                            </span>
+                            <p class="repo-activity-time">Updated yesterday</p>
+                        </div>
+                    </li> -->
                 </ul>
             </section>
         </main>
@@ -303,8 +339,8 @@
             </ul>
         </footer>
 
+        <script src="./index.js"></script>
         <!--Octicon CDN-->
         <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-        <script src="./index.js"></script>
     </body>
 </html>

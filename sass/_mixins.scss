@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+@mixin flexspacebtw {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @mixin buttontransform {
     padding: 3px 12px;
     font-family: $default-font-family;
@@ -20,4 +26,9 @@
     box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04), inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
     transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
     transition-property: color, background-color, border-color;
+}
+
+
+@mixin slidedown {
+    
 }

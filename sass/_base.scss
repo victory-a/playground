@@ -20,6 +20,12 @@ body {
     background-color: $white;
     // max-width: 100vw;
     // border: 1px solid red;
+
+    // &.open {
+    //     .nav-dropbar {
+    //         display: initial !important;
+    //     }
+    // }
 }
 
 a {
@@ -39,9 +45,8 @@ main {
     }
 }
 
-footer{
+footer {
     max-width: 110rem;
-
 }
 
 main,

@@ -6,39 +6,32 @@
 
 // navbar
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: $fauxblack;
-    width: 100vw;
-    padding: 15px 32px;
-
-    & .nav-group-left {
-        display: flex;
-        align-items: center;
-    }
-
-    & .nav-toggle {
-        align-self: center;
-        color: $white;
-        font-size: 24px;
-
-        @include md {
-            display: none;
-        }
-    }
-
+    // nav template styles
     & .nav-brand {
         & .iconify {
             font-size: 32px;
             color: $white;
             transition: color 0.2s;
             vertical-align: bottom;
-            // margin-right: 16px;
+        }
+    }
 
-            &:hover {
-                color: $spindle;
-            }
+    & .nav-toggle {
+        align-self: center;
+        color: $white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 50;
+
+        @include md {
+            display: none;
+        }
+    }
+
+    & .nav-toggle,
+    & .nav-brand .iconify {
+        &:hover {
+            color: $spindle;
         }
     }
 
@@ -49,8 +42,8 @@ nav {
         font-weight: 400;
         border-radius: 7px;
         background-color: $fauxblack;
-        margin: 0 16px;
         height: 30px;
+        margin: 0 16px;
         width: 272px;
 
         img {
@@ -75,27 +68,89 @@ nav {
                 letter-spacing: 0.3px;
             }
         }
+
+        @include dskf(768) {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    & .notification-bell {
+        font-size: 16px;
+
+        position: relative;
+
+        & .indicator {
+            position: absolute;
+            width: 8.5px;
+            height: 8.5px;
+            border-radius: 50%;
+            top: -3px;
+            right: 1px;
+            background-color: #006eed;
+        }
+    }
+
+    & a {
+        font-weight: 600;
+        font-size: $default-font-size;
+        color: $white;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: hsla(0, 0%, 100%, 0.7);
+        }
+    }
+
+    & .account,
+    .profile-link {
+        img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    // controls which nav to show
+    @include dskf(768) {
+        &.nav-lg {
+            display: none;
+        }
+
+        &.nav-sm {
+            display: flex;
+        }
+    }
+
+    @include md {
+        &.nav-sm {
+            display: none;
+        }
+    }
+}
+
+// nav for lager screens
+.nav-lg {
+    @include flexspacebtw;
+    background-color: $fauxblack;
+    width: 100vw;
+    padding: 15px 32px;
+
+    & .nav-group-left {
+        display: flex;
+        align-items: center;
     }
 
     & .nav-list {
         display: flex;
         align-items: center;
 
-        & a {
-            font-weight: 600;
-            font-size: $default-font-size;
-            color: $white;
-            transition: color 0.2s ease;
-
-            &:hover {
-                color: hsla(0, 0%, 100%, 0.7);
-            }
-        }
-
         & li:not(:last-of-type) {
             margin-right: 1.6rem;
         }
 
+        // toggle btw pull requests and pulls nav item
         & .sm {
             @include rwd(1011) {
                 display: none;
@@ -114,27 +169,6 @@ nav {
         display: flex;
         align-items: center;
         flex-wrap: no-wrap;
-
-        img {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        & .notification-bell {
-            position: relative;
-
-            & .indicator {
-                position: absolute;
-                width: 8.5px;
-                height: 8.5px;
-                border-radius: 50%;
-                top: -3px;
-                right: 1px;
-                background-color: #006eed;
-            }
-        }
 
         & .notification-bell,
         & .create,
@@ -165,21 +199,95 @@ nav {
             }
         }
     }
+}
 
-    @include dskf(768) {
-        // hide nav elements on smaller screens
-        & .nav-list,
-        & .search-bar,
-        & .nav-group-right .create,
-        & .nav-group-right .account {
-            display: none;
+// nav for smaller screens
+.nav-sm {
+    width: 100vw;
+    background-color: $fauxblack;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    // position: relative;
+
+    & .iconify {
+        color: $white;
+
+        &:hover {
+            color: hsla(0, 0%, 100%, 0.7);
+        }
+    }
+
+    & .nav-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    & .notification-bell {
+        cursor: pointer;
+    }
+
+    & .indicator {
+        transform: translate(-1px, 2px);
+    }
+
+    &.open {
+        .nav-dropbar {
+            display: initial;
+        }
+    }
+
+    & .nav-dropbar {
+        display: none;
+        margin-top: 16px;
+        width: 100%;
+    }
+
+    & .search-bar {
+        height: 30px;
+        margin-bottom: 16px;
+    }
+
+    & .nav-list li:first-of-type {
+        border-top: 1px solid hsla(0, 0%, 100%, 0.15);
+    }
+
+    & .nav-list li {
+        padding: 8px 0;
+        border-top: 1px solid hsla(0, 0%, 100%, 0.15);
+    }
+
+    & .nav-list a {
+        display: block;
+    }
+
+    & .profile-link {
+        padding: 8px 0;
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.15);
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-right: 3px;
+        }
+    }
+
+    & .signout {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0;
+        color: $white;
+
+        &:hover {
+            color: hsla(0, 0%, 100%, 0.7);
         }
 
-        & .nav-group-right > div.notification-bell {
-            margin-right: 0;
+        & .iconify {
+            margin-right: 3px;
         }
-
-        padding: 16px;
     }
 }
 
@@ -297,8 +405,6 @@ nav {
 
     img {
         border-radius: 50%;
-        // width: 100%;
-        // height: 100%;
         max-width: 28rem;
         max-height: 28rem;
         width: 100%;
@@ -308,6 +414,7 @@ nav {
     & h1 {
         font-size: 26px;
         line-height: 1.25;
+        font-weight: 600;
         color: $fauxblack;
     }
 
@@ -316,6 +423,14 @@ nav {
 
         @include md {
             display: initial;
+
+            & p {
+                padding-bottom: 16px;
+            }
+
+            & h1 {
+                padding-top: 12px;
+            }
         }
     }
 
@@ -343,7 +458,7 @@ nav {
 // tabs section
 .tabs-section {
     border-bottom: $thin-grey-border;
-    
+
     & ul {
         display: flex;
         justify-content: flex-start;
@@ -357,9 +472,7 @@ nav {
         border-bottom: 2px solid transparent;
 
         a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flexmiddle;
             color: $fauxblack;
             cursor: pointer;
 
@@ -434,9 +547,7 @@ nav {
         }
 
         & .repo-title-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include flexspacebtw;
         }
 
         a {
@@ -524,9 +635,7 @@ nav {
 
 /* footer section */
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexspacebtw;
     width: 100%;
     padding: 4rem 0;
     margin-top: 4rem;
