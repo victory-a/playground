@@ -134,7 +134,7 @@ nav {
 .nav-lg {
     @include flexspacebtw;
     background-color: $fauxblack;
-    width: 100vw;
+    width: 100%;
     padding: 15px 32px;
 
     & .nav-group-left {
@@ -203,12 +203,11 @@ nav {
 
 // nav for smaller screens
 .nav-sm {
-    width: 100vw;
+    width: 100%;
     background-color: $fauxblack;
     display: flex;
     flex-direction: column;
     padding: 16px;
-    // position: relative;
 
     & .iconify {
         color: $white;
@@ -337,7 +336,6 @@ nav {
 
     .container {
         padding: 0 1.6rem;
-
         @include dskf(768) {
             width: calc(100vw - 32px);
         }
