@@ -2,7 +2,7 @@
 // console.log(process.env.victory);
 
 // controls the functionality for toggling mobile nav
-function tobbleMobileNav() {
+function toggleMobileNav() {
   return document.getElementById('mobile-nav').classList.toggle('open');
 }
 
