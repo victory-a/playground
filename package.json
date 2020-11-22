@@ -11,7 +11,5 @@
   "devDependencies": {
     "node-sass": "^5.0.0"
   },
-  "dependencies": {
-    "dotenv": "^8.2.0"
-  }
+  "dependencies": {}
 }
