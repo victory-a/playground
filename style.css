@@ -78,6 +78,8 @@ nav .search-bar {
   height: 30px;
   margin: 0 16px;
   width: 272px; }
+  nav .search-bar:focus-within {
+    outline: 1px solid #0366D6; }
   nav .search-bar img {
     margin-right: 8px;
     width: 19px;

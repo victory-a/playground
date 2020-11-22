@@ -46,6 +46,10 @@ nav {
         margin: 0 16px;
         width: 272px;
 
+        &:focus-within {
+            outline: 1px solid $blue;
+        }
+
         img {
             margin-right: 8px;
             width: 19px;
