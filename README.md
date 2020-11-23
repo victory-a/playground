@@ -1,6 +1,6 @@
 #   BuyCoins Front-end Skill Assessment 
 
-The task was to implement a minimal responsive clone of github's repository page with a maximum of 20 repositories.
+The task was to implement a minimal responsive clone of github's repository page.
 
 Live URL: [https://victory-buycoins.netlify.app/](https://victory-buycoins.netlify.app/)
 
