@@ -4,6 +4,7 @@
   "description": "buycoins frontend challenge",
   "main": "index.js",
   "scripts": {
+    "start": "live-server",
     "compile:sass": "node-sass sass/main.scss style.css -w"
   },
   "author": "victory asokomeh",
@@ -11,5 +12,7 @@
   "devDependencies": {
     "node-sass": "^5.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+ 
+  }
 }
