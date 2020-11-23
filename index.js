@@ -148,7 +148,7 @@ const query = `
 (function fetchDataFromGithub() {
     const opts = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer fa1f8825e8ca78769d6056c84ea95f46a1806efc' },
         body: JSON.stringify({ query }),
     };
 
