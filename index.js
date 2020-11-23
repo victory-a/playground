@@ -15,26 +15,27 @@ let data = {
 
                         primaryLanguage: {
                             name: 'TypeScript',
-                            color: '#2b7489',
+                            color: '#cdcdcd',
                         },
-                        stargazerCount: 0,
-                        forkCount: 0,
-                        updatedAt: '2020-08-26T22:25:37Z',
+                        viewerHasStarred: true,
+                        stargazerCount: 7,
+                        forkCount: 3,
+                        updatedAt: "2019-10-09T17:52:12Z",
                         url: 'https://github.com/victory-a/twitterClone',
                     },
-                    {
-                        name: 'twitterClone',
-                        description: 'React setup with styled components and chakra ui, to be updated.....',
+                    // {
+                    //     name: 'twitterClone',
+                    //     description: 'React setup with styled components and chakra ui, to be updated.....',
 
-                        primaryLanguage: {
-                            name: 'TypeScript',
-                            color: '#2b7489',
-                        },
-                        stargazerCount: 0,
-                        forkCount: 0,
-                        updatedAt: '2020-08-26T22:25:37Z',
-                        url: 'https://github.com/victory-a/twitterClone',
-                    },
+                    //     primaryLanguage: {
+                    //         name: 'TypeScript',
+                    //         color: '#2b7489',
+                    //     },
+                    //     stargazerCount: 0,
+                    //     forkCount: 0,
+                    //     updatedAt: '2020-08-26T22:25:37Z',
+                    //     url: 'https://github.com/victory-a/twitterClone',
+                    // },
                 ],
             },
         },
@@ -66,6 +67,25 @@ let userName = document.querySelectorAll('#username');
 let userBio = document.getElementById('bio');
 let repoCount = document.getElementById('private-repo-count');
 let reposContainer = document.getElementById('repos');
+
+function formatDate(dateString) {
+    let finalDate;
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    let date = new Date(dateString).toLocaleDateString(undefined, options);
+    const currentYear = new Date().getFullYear();
+
+    if (date.includes(currentYear)) {
+        date.replace(currentYear, '');
+        const formattedDate = date.split(',')[0].split(' ');
+        finalDate = `${formattedDate[1]} ${formattedDate[0]}`;
+    } else {
+        const dateArr = date.split(',');
+        const formattedDate = dateArr[0].split(' ');
+        console.log(formattedDate)
+        finalDate = `${formattedDate[1]} ${formattedDate[0]} ${formattedDate[2].trim()}`;
+    }
+    return finalDate;
+}
 
 function formatRepoLayout(repo) {
     // template elements
@@ -100,6 +120,7 @@ function formatRepoLayout(repo) {
             : '';
 
     const description = repo.description ? `<p class="repo-description">${repo.description}</p>` : '';
+    const lastUpdatedDate = formatDate(repo.updatedAt)
 
     return `
             <div class="repo-title-row">
@@ -114,6 +135,7 @@ function formatRepoLayout(repo) {
             </span>
             ${stars}
             ${forks}
+            <p id="updated-at" class="repo-activity-time">Updated on ${lastUpdatedDate}</p>
             </div>
             `;
 }
