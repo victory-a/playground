@@ -384,8 +384,9 @@ nav {
         align-items: center;
         color: $grey;
         background-color: $white;
-        padding: 10px;
+        padding: 0 10px;
         border: 1px solid #e1e4e8;
+
         box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
         white-space: nowrap;
         cursor: pointer;
@@ -409,15 +410,16 @@ nav {
         }
 
         @include md {
-            left: 85%;
-            bottom: 20%;
+            left: 83%;
+            bottom: 13%;
             position: absolute;
             border-radius: 2em;
             height: 38px;
             z-index: 2;
-            width: fit-content;
+            width: 38px;
 
             &:hover {
+                width: auto;
                 & p {
                     display: initial;
                 }
