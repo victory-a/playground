@@ -2,7 +2,7 @@
 
 The task was to implement a minimal responsive clone of github's repository page with a maximum of 20 repositories.
 
-[Live URL]: [https://victory-buycoins.netlify.app/](https://victory-buycoins.netlify.app/)
+Live URL: [https://victory-buycoins.netlify.app/](https://victory-buycoins.netlify.app/)
 
 ## Instructions  
 To run the project;
