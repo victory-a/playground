@@ -145,19 +145,27 @@ const query = `
 `;
 
 // IIFE which makes call to githubs api on page load
-(function fetchDataFromGithub() {
+(async function fetchDataFromGithub() {
     // I normally would not expose the api key this way.
     // The other ways around this I could come up with involved moving part of the code here to a server.
     // Thus I set strict access permissions on this key to limit it to only allowing GET requests to my public repos
 
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer fa1f8825e8ca78769d6056c84ea95f46a1806efc' },
-        body: JSON.stringify({ query }),
-    };
+    try {
+        const response = await fetch('https://buycoins-server.herokuapp.com/');
+        const data = await response.json();
+        if (data) {
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.key}` },
+                body: JSON.stringify({ query }),
+            };
 
-    fetch('https://api.github.com/graphql', options)
-        .then((res) => res.json())
-        .then((data) => populaterRepos(data))
-        .catch(console.error);
+            fetch('https://api.github.com/graphql', options)
+                .then((res) => res.json())
+                .then((data) => populaterRepos(data))
+                .catch(console.error);
+        }
+    } catch (error) {
+        console.log(error);
+    }
 })();
