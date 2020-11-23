@@ -549,6 +549,7 @@ nav {
 
 // repos section
 .repos-section {
+    width: 100%;
     & .search-bar {
         padding: 1.6rem 0;
         margin: 0 1.6rem;
@@ -566,6 +567,18 @@ nav {
         }
     }
 
+    & .result-count {
+        display: inline-block;
+        padding: 1.6rem 0;
+        margin: 0 1.6rem;
+        border-bottom: $thin-grey-border;
+        color: $fauxblack;
+
+        & span {
+            font-weight: 600;
+        }
+    }
+
     & .repo-list {
         padding: 0 1.6rem;
 
@@ -578,7 +591,9 @@ nav {
         }
 
         & .repo-title-row {
-            @include flexspacebtw;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
         }
 
         a {
@@ -638,7 +653,7 @@ nav {
 
         & .language-color-code {
             position: relative;
-            background-color: red;
+            background-color: #cdcdcd;
             width: 12px;
             height: 12px;
             border-radius: 50%;

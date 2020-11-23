@@ -18,7 +18,7 @@
         <header>
             <nav class="nav-lg">
                 <div class="nav-group-left">
-                    <a href="" class="nav-brand" aria-label="github home">
+                    <a href="https://github.com/" class="nav-brand" aria-label="github home">
                         <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
                     </a>
                     <div class="search-bar">
@@ -44,7 +44,7 @@
                         <i class="fas fa-caret-down"></i>
                     </div>
                     <div class="account" aria-label="View profile menu, settings and more">
-                        <img id="userAvatar" src="./images/avatar-small.jpeg" alt="user avatar" />
+                        <img class="userAvatar" alt="user avatar" />
                         <i class="fas fa-caret-down"></i>
                     </div>
                 </div>
@@ -77,8 +77,8 @@
                         <li class="nav-item"><a href="" class="nav-link" aria-label="Settings">Settings</a></li>
                     </ul>
                     <a class="profile-link" href="" aria-label="profile">
-                        <img id="userAvatar" src="./images/avatar-small.jpeg" alt="user avatar" />
-                        <span id="username">victory-a</span>
+                        <img class="userAvatar" alt="user avatar" />
+                        <span id="username"></span>
                     </a>
                     <a class="signout" href="" aria-label="Sign out">
                         <span class="iconify" data-icon="octicon:sign-out-16" data-inline="false"></span>
@@ -92,16 +92,16 @@
             <!-- user info section -->
             <aside class="user-details">
                 <div class="empty">
-                    <img id="userAvatar" src="./images/avatar-big.jpeg" alt="user avatar" tabindex="0" />
-                    <p id="username">victory-a</p>
+                    <img class="userAvatar" alt="user avatar" tabindex="0" />
+                    <p id="username"></p>
                 </div>
                 <div class="container">
                     <div class="avatar-container">
-                        <img id="userAvatar" src="./images/avatar-big.jpeg" alt="user avatar" tabindex="0" />
+                        <img class="userAvatar" alt="user avatar" tabindex="0" />
 
                         <div class="account-info hide-md">
-                            <h1 id="name">Victory Asokomeh</h1>
-                            <p id="username">victory-a</p>
+                            <h1 id="name"></h1>
+                            <p id="username"></p>
                         </div>
                         <button class="status">
                             <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
@@ -109,10 +109,10 @@
                         </button>
                     </div>
                     <div class="account-info hide-sm">
-                        <h1 id="name">Victory Asokomeh</h1>
-                        <p id="username">victory-a</p>
+                        <h1 id="name"></h1>
+                        <p id="username"></p>
                     </div>
-                    <p id="bio" class="bio-info">Frontend Developer & Mobile enthusiast</p>
+                    <p id="bio" class="bio-info"></p>
                 </div>
             </aside>
 
@@ -153,263 +153,40 @@
                     <input type="text" placeholder="Find a repository..." aria-label="search through github" />
                 </div>
 
+                <div class="result-count">
+                    <p><span id="private-repo-count"></span> results for <span>public</span> repositories</p>
+                </div>
                 <!-- repos list -->
-                <ul class="repo-list">
-                    <li>
-                        <a href="">mailserver</a>
+                <ul id="repos" class="repo-list">
+                    <!-- <li>
                         <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
+                            <a class="repo-name" href="">mailserver</a>
                             <button class="star">
                                 <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
                                 Star
                             </button>
                         </div>
+                        <p class="repo-description">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                         <div class="repo-metadata">
                             <span class="repo-language-details">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
+                                <span class="language-color-code"></span>
+                                <p class="language">Javascript</p>
                             </span>
                             <span class="stargazers">
                                 <a href="" aria-label="repo star stats">
                                     <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
                                 </a>
-                                <p id="stargazer-count">10</p>
+                                <p class="stargazer-count">10</p>
                             </span>
                             <span class="forks">
                                 <a href="" aria-label="repo forks">
                                     <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
                                 </a>
-                                <p id="fork-count">10</p>
+                                <p class="fork-count">10</p>
                             </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
+                            <p id="updated-at" class="repo-activity-time">Updated yesterday</p>
                         </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="">mailserver</a>
-                        <div class="repo-title-row">
-                            <p class="repo-description">
-                                mail server with send grid config Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora, deleniti.
-                            </p>
-                            <button class="star">
-                                <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                Star
-                            </button>
-                        </div>
-                        <div class="repo-metadata">
-                            <span class="repo-language-detaila">
-                                <span id="langiage-color" class="language-color-code"></span>
-                                <p id="language">Javascript</p>
-                            </span>
-                            <span class="stargazers">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
-                                </a>
-                                <p id="stargazer-count">10</p>
-                            </span>
-                            <span class="forks">
-                                <a href="">
-                                    <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
-                                </a>
-                                <p id="fork-count">10</p>
-                            </span>
-                            <p class="repo-activity-time">Updated yesterday</p>
-                        </div>
-                    </li>
+                    </li> -->
                 </ul>
             </section>
         </main>
