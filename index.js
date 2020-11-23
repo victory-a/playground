@@ -1,47 +1,3 @@
-let data = {
-    data: {
-        viewer: {
-            avatarUrl: 'https://avatars3.githubusercontent.com/u/28878343?s=300&u=ed33540e047c9190e7ac276fd11301fa3053d90e&v=4',
-            name: 'Victory Asokomeh',
-            login: 'victory-a',
-            bio: 'Frontend Developer & Mobile enthusiast\r\n',
-            url: 'https://github.com/victory-a',
-            repositories: {
-                totalCount: 24,
-                nodes: [
-                    {
-                        name: 'twitterClone',
-                        description: 'React setup with styled components and chakra ui, to be updated.....',
-
-                        primaryLanguage: {
-                            name: 'TypeScript',
-                            color: '#cdcdcd',
-                        },
-                        viewerHasStarred: true,
-                        stargazerCount: 7,
-                        forkCount: 3,
-                        updatedAt: "2019-10-09T17:52:12Z",
-                        url: 'https://github.com/victory-a/twitterClone',
-                    },
-                    // {
-                    //     name: 'twitterClone',
-                    //     description: 'React setup with styled components and chakra ui, to be updated.....',
-
-                    //     primaryLanguage: {
-                    //         name: 'TypeScript',
-                    //         color: '#2b7489',
-                    //     },
-                    //     stargazerCount: 0,
-                    //     forkCount: 0,
-                    //     updatedAt: '2020-08-26T22:25:37Z',
-                    //     url: 'https://github.com/victory-a/twitterClone',
-                    // },
-                ],
-            },
-        },
-    },
-};
-
 // controls the functionality for toggling mobile nav
 function toggleMobileNav() {
     return document.getElementById('mobile-nav').classList.toggle('open');
@@ -81,7 +37,6 @@ function formatDate(dateString) {
     } else {
         const dateArr = date.split(',');
         const formattedDate = dateArr[0].split(' ');
-        console.log(formattedDate)
         finalDate = `${formattedDate[1]} ${formattedDate[0]} ${formattedDate[2].trim()}`;
     }
     return finalDate;
@@ -120,7 +75,11 @@ function formatRepoLayout(repo) {
             : '';
 
     const description = repo.description ? `<p class="repo-description">${repo.description}</p>` : '';
-    const lastUpdatedDate = formatDate(repo.updatedAt)
+    const lastUpdatedDate = formatDate(repo.updatedAt);
+    const repoColor = repo?.primaryLanguage?.color
+        ? `<span class="language-color-code" style="background-color: ${repo.primaryLanguage.color};"></span>`
+        : '';
+    const repoLanguage = repo?.primaryLanguage?.name ? `<p class="language">${repo.primaryLanguage.name}</p>` : '';
 
     return `
             <div class="repo-title-row">
@@ -130,8 +89,8 @@ function formatRepoLayout(repo) {
             ${description}
             <div class="repo-metadata">
             <span class="repo-language-details">
-            <span class="language-color-code" style="background-color: ${repo.primaryLanguage.color};"></span>
-            <p class="language">${repo.primaryLanguage.name}</p>
+            ${repoColor}
+            ${repoLanguage}
             </span>
             ${stars}
             ${forks}
@@ -140,18 +99,61 @@ function formatRepoLayout(repo) {
             `;
 }
 
-const { avatarUrl, login, name, bio, url, repositories } = data.data.viewer;
-
 // populates attributes element attributes and textcontents
-userAvatars.forEach((avatar) => (avatar.src = avatarUrl));
-currentUser.forEach((occurence) => (occurence.textContent = name));
-userName.forEach((occurence) => (occurence.textContent = login));
-repoCount.textContent = repositories.totalCount;
-userBio.textContent = bio;
+function populaterRepos(data) {
+    const { avatarUrl, login, name, bio, repositories } = data.data.viewer;
 
+    userAvatars.forEach((avatar) => (avatar.src = avatarUrl));
+    currentUser.forEach((occurence) => (occurence.textContent = name));
+    userName.forEach((occurence) => (occurence.textContent = login));
+    repoCount.textContent = repositories.totalCount;
+    userBio.textContent = bio;
 
-repositories.nodes.forEach((repo) => {
-    const list = document.createElement('li');
-    list.innerHTML = formatRepoLayout(repo);
-    reposContainer.appendChild(list);
-});
+    repositories.nodes.forEach((repo) => {
+        let list = document.createElement('li');
+        list.innerHTML = formatRepoLayout(repo);
+        reposContainer.appendChild(list);
+    });
+}
+
+const query = `
+    query {
+        viewer {
+          avatarUrl(size: 300)
+          name
+          login
+          bio
+          url
+          repositories(last: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+            totalCount
+            nodes {
+              name
+              description
+              primaryLanguage {
+                name
+                color
+              }
+              viewerHasStarred
+              stargazerCount
+              forkCount
+              updatedAt
+              url
+            }
+          }
+        }
+    }
+`;
+
+// IIFE which makes call to githubs api on page load
+(function fetchDataFromGithub() {
+    const opts = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' },
+        body: JSON.stringify({ query }),
+    };
+
+    fetch('https://api.github.com/graphql', opts)
+        .then((res) => res.json())
+        .then((data) => populaterRepos(data))
+        .catch(console.error);
+})();
