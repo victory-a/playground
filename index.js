@@ -146,14 +146,24 @@ const query = `
 
 // IIFE which makes call to githubs api on page load
 (function fetchDataFromGithub() {
-    const opts = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer fa1f8825e8ca78769d6056c84ea95f46a1806efc' },
-        body: JSON.stringify({ query }),
-    };
+    let token;
 
-    fetch('https://api.github.com/graphql', opts)
+    // get token from proxy server
+    fetch('https://soks-proxy.herokuapp.com/auth')
         .then((res) => res.json())
-        .then((data) => populaterRepos(data))
+        .then((data) => (token = data.key))
         .catch(console.error);
+
+    // replace apikey with token if token exists and call github's api
+    if (token) {
+        const opts = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+            body: JSON.stringify({ query }),
+        };
+        fetch('https://api.github.com/graphql', opts)
+            .then((res) => res.json())
+            .then((data) => populaterRepos(data))
+            .catch(console.error);
+    }
 })();
