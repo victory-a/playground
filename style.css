@@ -304,7 +304,7 @@ nav .profile-link img {
     align-items: center;
     color: #586069;
     background-color: #FFF;
-    padding: 10px;
+    padding: 0 10px;
     border: 1px solid #e1e4e8;
     box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
     white-space: nowrap;
@@ -322,15 +322,17 @@ nav .profile-link img {
           display: none; } }
     @media (min-width: 769px) {
       .user-details .status {
-        left: 85%;
-        bottom: 20%;
+        left: 83%;
+        bottom: 13%;
         position: absolute;
         border-radius: 2em;
         height: 38px;
         z-index: 2;
-        width: fit-content; }
-        .user-details .status:hover p {
-          display: initial; } }
+        width: 38px; }
+        .user-details .status:hover {
+          width: auto; }
+          .user-details .status:hover p {
+            display: initial; } }
   .user-details img {
     border-radius: 50%;
     max-width: 28rem;
