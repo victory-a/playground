@@ -1,193 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta name="description" content="Github repositories page clone, done for buycoins frontend developer recruitment" />
+    <meta name="description" content="Github repositories page clone, done for buycoins frontend developer recruitment" />
 
-        <!--Font awesome CDN-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Your Repositories</title>
+    <!--Font awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Your Repositories</title>
 
-        <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/pinned-octocat.svg" />
-    </head>
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/pinned-octocat.svg" />
+  </head>
 
-    <body>
-        <header>
-            <nav class="nav-lg">
-                <div class="nav-group-left">
-                    <a href="https://github.com/" class="nav-brand" aria-label="github home">
-                        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
-                    </a>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
-                        <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
-                    </div>
-                    <ul class="nav-list">
-                        <li class="nav-item lg"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
-                        <li class="nav-item sm"><a href="" class="nav-link" aria-label="Pull requests you created">Pulls</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
-                    </ul>
-                </div>
+  <body>
+    <header>
+      <nav class="nav-lg">
+        <div class="nav-group-left">
+          <a href="https://github.com/" class="nav-brand" aria-label="github home">
+            <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+          </a>
+          <div class="search-bar">
+            <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
+            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
+          </div>
+          <ul class="nav-list">
+            <li class="nav-item lg"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
+            <li class="nav-item sm"><a href="" class="nav-link" aria-label="Pull requests you created">Pulls</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
+          </ul>
+        </div>
 
-                <div class="nav-group-right">
-                    <div class="notification-bell" tabindex="0" aria-label="notification indicator">
-                        <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
-                        <span class="indicator"></span>
-                    </div>
-                    <div class="create" tabindex="0" aria-label="create new">
-                        <span class="iconify" data-icon="octicon:plus-16" data-inline="false"></span>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="account" tabindex="0" aria-label="View profile menu, settings and more">
-                        <img class="userAvatar" alt="user avatar" />
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                </div>
-            </nav>
+        <div class="nav-group-right">
+          <div class="notification-bell" tabindex="0" aria-label="notification indicator">
+            <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
+            <span class="indicator"></span>
+          </div>
+          <div class="create" tabindex="0" aria-label="create new">
+            <span class="iconify" data-icon="octicon:plus-16" data-inline="false"></span>
+            <i class="fas fa-caret-down"></i>
+          </div>
+          <div class="account" tabindex="0" aria-label="View profile menu, settings and more">
+            <img class="userAvatar" alt="user avatar" />
+            <i class="fas fa-caret-down"></i>
+          </div>
+        </div>
+      </nav>
 
-            <!-- nav components to be displayed on smaller screens -->
-            <nav class="nav-sm" id="mobile-nav">
-                <div class="nav-topbar">
-                    <span class="iconify nav-toggle" data-icon="octicon:three-bars-16" data-inline="false" onclick="{toggleMobileNav()}"></span>
-                    <a href="" class="nav-brand" aria-label="github home">
-                        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
-                    </a>
-                    <div class="notification-bell" tabindex="0">
-                        <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
-                        <span class="indicator"></span>
-                    </div>
-                </div>
+      <!-- nav components to be displayed on smaller screens -->
+      <nav class="nav-sm" id="mobile-nav">
+        <div class="nav-topbar">
+          <span class="iconify nav-toggle" data-icon="octicon:three-bars-16" data-inline="false" onclick="{toggleMobileNav()}"></span>
+          <a href="" class="nav-brand" aria-label="github home">
+            <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+          </a>
+          <div class="notification-bell" tabindex="0">
+            <span class="iconify" data-icon="octicon:bell-16" data-inline="false"></span>
+            <span class="indicator"></span>
+          </div>
+        </div>
 
-                <div class="nav-dropbar">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
-                        <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
-                    </div>
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Name">Dashboard</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
-                        <li class="nav-item"><a href="" class="nav-link" aria-label="Settings">Settings</a></li>
-                    </ul>
-                    <a class="profile-link" href="" aria-label="profile">
-                        <img class="userAvatar" alt="user avatar" />
-                        <span id="username"></span>
-                    </a>
-                    <a class="signout" href="" aria-label="Sign out">
-                        <span class="iconify" data-icon="octicon:sign-out-16" data-inline="false"></span>
-                        <p>Sign out</p>
-                    </a>
-                </div>
-            </nav>
-        </header>
+        <div class="nav-dropbar">
+          <div class="search-bar">
+            <input type="text" placeholder="Search or jump to..." aria-label="search through github" />
+            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="input suffix element" class="forward-slash" />
+          </div>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Name">Dashboard</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Pull requests you created">Pull requests</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Issues you created">Issues</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Marketplace">Marketplace</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Explore">Explore</a></li>
+            <li class="nav-item"><a href="" class="nav-link" aria-label="Settings">Settings</a></li>
+          </ul>
+          <a class="profile-link" href="" aria-label="profile">
+            <img class="userAvatar" alt="user avatar" />
+            <span id="username"></span>
+          </a>
+          <a class="signout" href="" aria-label="Sign out">
+            <span class="iconify" data-icon="octicon:sign-out-16" data-inline="false"></span>
+            <p>Sign out</p>
+          </a>
+        </div>
+      </nav>
+    </header>
 
-        <main class="main-content">
-            <!-- user info section -->
-            <aside class="user-details">
-                <div class="empty">
-                    <img class="userAvatar" alt="user avatar" tabindex="0" />
-                    <p id="username"></p>
-                </div>
-                <div class="container">
-                    <div class="avatar-container">
-                        <img class="userAvatar" alt="user avatar" tabindex="0" />
+    <main class="main-content">
+      <!-- user info section -->
+      <aside class="user-details">
+        <div class="empty">
+          <img class="userAvatar" alt="user avatar" tabindex="0" />
+          <p id="username"></p>
+        </div>
+        <div class="container">
+          <div class="avatar-container">
+            <img class="userAvatar" alt="user avatar" tabindex="0" />
 
-                        <div class="account-info hide-md">
-                            <h1 id="name"></h1>
-                            <p id="username"></p>
-                        </div>
-                        <button class="status" aria-label="set status">
-                            <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
-                            <p>Set status</p>
-                        </button>
-                    </div>
-                    <div class="account-info hide-sm">
-                        <h1 id="name"></h1>
-                        <p id="username"></p>
-                    </div>
-                    <p id="bio" class="bio-info"></p>
-                </div>
-            </aside>
+            <div class="account-info hide-md">
+              <h1 id="name"></h1>
+              <p id="username"></p>
+            </div>
+            <button class="status" aria-label="set status">
+              <span class="iconify" data-icon="octicon:smiley-24" data-inline="false"></span>
+              <p>Set status</p>
+            </button>
+          </div>
+          <div class="account-info hide-sm">
+            <h1 id="name"></h1>
+            <p id="username"></p>
+          </div>
+          <p id="bio" class="bio-info"></p>
+        </div>
+      </aside>
 
-            <!-- repos view -->
-            <section class="repos-section">
-                <div class="tabs-section">
-                    <ul class="tab-list">
-                        <li class="tab">
-                            <a href="">
-                                <span class="iconify" data-icon="octicon:book-16" data-inline="false"></span>
-                                Overview
-                            </a>
-                        </li>
-                        <li class="tab active-tab">
-                            <a href="">
-                                <span class="iconify" data-icon="octicon:repo-16" data-inline="false"></span>
-                                Repositories
-                                <span id="repo-count">41</span>
-                            </a>
-                        </li>
-                        <li class="tab">
-                            <a href="">
-                                <span class="iconify" data-icon="octicon:project-16" data-inline="false"></span>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="tab">
-                            <a href="">
-                                <span class="iconify" data-icon="octicon:package-16" data-inline="false"></span>
-                                Packages
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+      <!-- repos view -->
+      <section class="repos-section">
+        <div class="tabs-section">
+          <ul class="tab-list">
+            <li class="tab">
+              <a href="">
+                <span class="iconify" data-icon="octicon:book-16" data-inline="false"></span>
+                Overview
+              </a>
+            </li>
+            <li class="tab active-tab">
+              <a href="">
+                <span class="iconify" data-icon="octicon:repo-16" data-inline="false"></span>
+                Repositories
+                <span id="repo-count">41</span>
+              </a>
+            </li>
+            <li class="tab">
+              <a href="">
+                <span class="iconify" data-icon="octicon:project-16" data-inline="false"></span>
+                Projects
+              </a>
+            </li>
+            <li class="tab">
+              <a href="">
+                <span class="iconify" data-icon="octicon:package-16" data-inline="false"></span>
+                Packages
+              </a>
+            </li>
+          </ul>
+        </div>
 
-                <!-- search bar -->
-                <div class="search-bar">
-                    <input type="text" placeholder="Find a repository..." aria-label="search through github" />
-                </div>
+        <!-- search bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="Find a repository..." aria-label="search through github" />
+        </div>
 
-                <div class="result-count">
-                    <p><span id="private-repo-count"></span> results for <span>public</span> repositories</p>
-                </div>
-                <!-- repos list -->
-                <ul id="repos" class="repo-list"></ul>
-            </section>
-        </main>
+        <h1 id="loading-state">Fetching repositories...</h1>
+        
+        <div class="result-count">
+          <p><span id="private-repo-count"></span> results for <span>public</span> repositories</p>
+        </div>
+        <!-- repos list -->
+        <ul id="repos" class="repo-list"></ul>
+      </section>
+    </main>
 
-        <footer>
-            <a class="footer-brand" aria-label="github home" tabindex="0">
-                <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
-            </a>
-            <ul class="footer-links">
-                <li>
-                    <p class="copyright">
-                        <i class="far fa-copyright"></i>
-                        2020 GitHub, Inc.
-                    </p>
-                </li>
-                <li><a href="https://github.com/site/terms" target="blank">Terms</a></li>
-                <li><a href="https://github.com/site/privacy" target="blank">Privacy</a></li>
-                <li><a href="https://github.com/security" target="blank">Security</a></li>
-                <li><a href="https://githubstatus.com/" target="blank">Status</a></li>
-                <li><a href="https://docs.github.com/" target="blank">Help</a></li>
-                <li><a href="https://github.com/contact" target="blank">Contact GitHub</a></li>
-                <li><a href="https://github.com/pricing" target="blank">Pricing</a></li>
-                <li><a href="https://docs.github.com/" target="blank">API</a></li>
-                <li><a href="https://services.github.com/" target="blank">Training</a></li>
-                <li><a href="https://github.blog/" target="blank">Blog</a></li>
-                <li><a href="https://github.com/about" target="blank">About</a></li>
-            </ul>
-        </footer>
+    <footer>
+      <a class="footer-brand" aria-label="github home" tabindex="0">
+        <span class="iconify" data-icon="octicon:mark-github-16" data-inline="false"></span>
+      </a>
+      <ul class="footer-links">
+        <li>
+          <p class="copyright">
+            <i class="far fa-copyright"></i>
+            2020 GitHub, Inc.
+          </p>
+        </li>
+        <li><a href="https://github.com/site/terms" target="blank">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" target="blank">Privacy</a></li>
+        <li><a href="https://github.com/security" target="blank">Security</a></li>
+        <li><a href="https://githubstatus.com/" target="blank">Status</a></li>
+        <li><a href="https://docs.github.com/" target="blank">Help</a></li>
+        <li><a href="https://github.com/contact" target="blank">Contact GitHub</a></li>
+        <li><a href="https://github.com/pricing" target="blank">Pricing</a></li>
+        <li><a href="https://docs.github.com/" target="blank">API</a></li>
+        <li><a href="https://services.github.com/" target="blank">Training</a></li>
+        <li><a href="https://github.blog/" target="blank">Blog</a></li>
+        <li><a href="https://github.com/about" target="blank">About</a></li>
+      </ul>
+    </footer>
 
-        <script src="./index.js"></script>
-        <!--Octicon CDN-->
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    </body>
+    <script src="./index.js"></script>
+    <!--Octicon CDN-->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  </body>
 </html>

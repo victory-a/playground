@@ -1,16 +1,16 @@
 // controls the functionality for toggling mobile nav
 function toggleMobileNav() {
-    return document.getElementById('mobile-nav').classList.toggle('open');
+  return document.getElementById('mobile-nav').classList.toggle('open');
 }
 
 // controls the visibility tab bar avatar and username
 let emptyStickyDiv = document.querySelector('.empty');
 function toggleTabLeftSection() {
-    if (window.pageYOffset > 515) {
-        emptyStickyDiv.classList.add('visible');
-    } else {
-        emptyStickyDiv.classList.remove('visible');
-    }
+  if (window.pageYOffset > 515) {
+    emptyStickyDiv.classList.add('visible');
+  } else {
+    emptyStickyDiv.classList.remove('visible');
+  }
 }
 
 // keeps track of vertical scroll position to determine elements to render on the categories tab
@@ -25,63 +25,63 @@ let repoCount = document.getElementById('private-repo-count');
 let reposContainer = document.getElementById('repos');
 
 function formatDate(dateString) {
-    let finalDate;
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-    let date = new Date(dateString).toLocaleDateString(undefined, options);
-    const currentYear = new Date().getFullYear();
+  let finalDate;
+  const options = { day: 'numeric', month: 'long', year: 'numeric' };
+  let date = new Date(dateString).toLocaleDateString(undefined, options);
+  const currentYear = new Date().getFullYear();
 
-    if (date.includes(currentYear)) {
-        date.replace(currentYear, '');
-        const formattedDate = date.split(',')[0].split(' ');
-        finalDate = `${formattedDate[1]} ${formattedDate[0]}`;
-    } else {
-        const dateArr = date.split(',');
-        const formattedDate = dateArr[0].split(' ');
-        finalDate = `${formattedDate[1]} ${formattedDate[0]} ${formattedDate[2].trim()}`;
-    }
-    return finalDate;
+  if (date.includes(currentYear)) {
+    date.replace(currentYear, '');
+    const formattedDate = date.split(',')[0].split(' ');
+    finalDate = `${formattedDate[1]} ${formattedDate[0]}`;
+  } else {
+    const dateArr = date.split(',');
+    const formattedDate = dateArr[0].split(' ');
+    finalDate = `${formattedDate[1]} ${formattedDate[0]} ${formattedDate[2].trim()}`;
+  }
+  return finalDate;
 }
 
 function formatRepoLayout(repo) {
-    // template elements
-    const starButton = repo.viewerHasStarred
-        ? `<button class="star">
+  // template elements
+  const starButton = repo.viewerHasStarred
+    ? `<button class="star">
             <span class="iconify" data-icon="octicon:star-fill-24" data-inline="false"></span>
             Unstar
             </button>`
-        : `<button class="star">
+    : `<button class="star">
             <span class="iconify" data-icon="octicon:star-24" data-inline="false"></span>
                 Star
                 </button>`;
 
-    const stars =
-        repo.stargazerCount > 0
-            ? `<span class="stargazers">
+  const stars =
+    repo.stargazerCount > 0
+      ? `<span class="stargazers">
             <a href="" aria-label="repo star stats">
             <span class="iconify starred" data-icon="octicon:star-24" data-inline="false"></span>
             </a>
             <p class="stargazer-count">${repo.stargazerCount}</p>
         </span>`
-            : '';
+      : '';
 
-    const forks =
-        repo.forkCount > 0
-            ? `<span class="forks">
+  const forks =
+    repo.forkCount > 0
+      ? `<span class="forks">
             <a href="" aria-label="repo forks">
             <span class="iconify" data-icon="octicon:git-fork-24" data-inline="false"></span>
             </a>
             <p class="fork-count">${repo.forkCount}</p>
             </span>`
-            : '';
+      : '';
 
-    const description = repo.description ? `<p class="repo-description">${repo.description}</p>` : '';
-    const lastUpdatedDate = formatDate(repo.updatedAt);
-    const repoColor = repo?.primaryLanguage?.color
-        ? `<span class="language-color-code" style="background-color: ${repo.primaryLanguage.color};"></span>`
-        : '';
-    const repoLanguage = repo?.primaryLanguage?.name ? `<p class="language">${repo.primaryLanguage.name}</p>` : '';
+  const description = repo.description ? `<p class="repo-description">${repo.description}</p>` : '';
+  const lastUpdatedDate = formatDate(repo.updatedAt);
+  const repoColor = repo?.primaryLanguage?.color
+    ? `<span class="language-color-code" style="background-color: ${repo.primaryLanguage.color};"></span>`
+    : '';
+  const repoLanguage = repo?.primaryLanguage?.name ? `<p class="language">${repo.primaryLanguage.name}</p>` : '';
 
-    return `
+  return `
             <div class="repo-title-row">
             <a class="repo-name" href=${repo.url}>${repo.name}</a>
             ${starButton}
@@ -101,19 +101,19 @@ function formatRepoLayout(repo) {
 
 // populates attributes element attributes and textcontents
 function populaterRepos(data) {
-    const { avatarUrl, login, name, bio, repositories } = data.data.viewer;
+  const { avatarUrl, login, name, bio, repositories } = data.data.viewer;
 
-    userAvatars.forEach((avatar) => (avatar.src = avatarUrl));
-    currentUser.forEach((occurence) => (occurence.textContent = name));
-    userName.forEach((occurence) => (occurence.textContent = login));
-    repoCount.textContent = repositories.totalCount;
-    userBio.textContent = bio;
+  userAvatars.forEach((avatar) => (avatar.src = avatarUrl));
+  currentUser.forEach((occurence) => (occurence.textContent = name));
+  userName.forEach((occurence) => (occurence.textContent = login));
+  repoCount.textContent = repositories.totalCount;
+  userBio.textContent = bio;
 
-    repositories.nodes.forEach((repo) => {
-        let list = document.createElement('li');
-        list.innerHTML = formatRepoLayout(repo);
-        reposContainer.appendChild(list);
-    });
+  repositories.nodes.forEach((repo) => {
+    let list = document.createElement('li');
+    list.innerHTML = formatRepoLayout(repo);
+    reposContainer.appendChild(list);
+  });
 }
 
 const query = `
@@ -144,28 +144,35 @@ const query = `
     }
 `;
 
+function hideLoadingState() {
+  document.getElementById('loading-state').classList.add('hide');
+}
+
 // IIFE which makes call to githubs api on page load
 (async function fetchDataFromGithub() {
-    // I normally would not expose the api key this way.
-    // The other ways around this I could come up with involved moving part of the code here to a server.
-    // Thus I set strict access permissions on this key to limit it to only allowing GET requests to my public repos
+  // I normally would not expose the api key this way.
+  // The other ways around this I could come up with involved moving part of the code here to a server.
+  // Thus I set strict access permissions on this key to limit it to only allowing GET requests to my public repos
 
-    try {
-        const response = await fetch('https://buycoins-server.herokuapp.com/');
-        const data = await response.json();
-        if (data) {
-            const options = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.key}` },
-                body: JSON.stringify({ query }),
-            };
+  try {
+    const response = await fetch('https://buycoins-server.herokuapp.com/');
+    const data = await response.json();
+    if (data) {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.key}` },
+        body: JSON.stringify({ query }),
+      };
 
-            fetch('https://api.github.com/graphql', options)
-                .then((res) => res.json())
-                .then((data) => populaterRepos(data))
-                .catch(console.error);
-        }
-    } catch (error) {
-        console.log(error);
+      fetch('https://api.github.com/graphql', options)
+        .then((res) => res.json())
+        .then((data) => {
+          hideLoadingState();
+          populaterRepos(data);
+        })
+        .catch(console.error);
     }
+  } catch (error) {
+    console.log(error);
+  }
 })();
